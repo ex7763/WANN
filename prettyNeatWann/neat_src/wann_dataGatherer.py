@@ -2,6 +2,7 @@ import os
 import numpy as np
 import copy
 from .ann import exportNet
+from datetime import datetime
 
 class WannDataGatherer():
   ''' Data recorder for WANN algorithm'''
@@ -24,6 +25,17 @@ class WannDataGatherer():
                   'elite','best']
                   
     self.objVals = np.array([])
+
+    
+
+    now = datetime.now() # current date and time
+    self.date_time = now.strftime("%F_%H-%M-%S")
+    self.my_file_name = "log_" + self.date_time + ".csv"
+    print("Create new log file", self.my_file_name)
+    self.file = open(self.my_file_name, "a")
+    self.file.write("Generation, Elite_Fit, Best Fit, Peak Fit\n")
+    self.ep_count = 0
+
 
     for f in self.field[:-2]:
       exec('self.' + f + ' = np.array([])')
@@ -77,6 +89,9 @@ class WannDataGatherer():
     # ------------------------------------------------------------------------ 
 
   def display(self):
+    self.file = open(self.my_file_name, "a")
+    self.file.write(str(self.ep_count) + ',' + str(self.fit_max[-1]) + ',' + str(self.fit_top[-1]) + ',' + str(self.fit_peak[-1]) + '\n')
+    self.ep_count += 1
     return    "|---| Elite Fit: " + '{:.2f}'.format(self.fit_max[-1]) \
          + " \t|---| Best Fit:  "  + '{:.2f}'.format(self.fit_top[-1]) \
          + " \t|---| Peak Fit:  "  + '{:.2f}'.format(self.fit_peak[-1])

@@ -1,5 +1,5 @@
 {
-    "task":"swingup",
+    "task":"biped",
     "maxGen": 100,
     "alg_nReps": 3,
     "popSize": 8,
