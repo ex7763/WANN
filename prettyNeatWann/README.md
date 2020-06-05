@@ -2,6 +2,19 @@
 
 Weight Agnostic Networks: network topologies evolved to work with a variety of shared weights. Adapted from the [prettyNEAT](../prettyNEAT) package. If you are just interested in seeing more details of how WANNs were implemented the [WANN](../WANN) repo is a cleaner self-contained version. This fork contains and adapts code used in the original NEAT (species, crossover, etc.) -- so if you are looking to extend or play around with WANNs you are in the right place.
 
+## Use
+### train
+```
+chmod +x train.sh
+./train.sh "env_name" "[list of activation function you want]"
+# example, the "quotation mark" is nee
+./train.sh swingup "[1, 2, 3, 4, 5, 6, 7]"
+./train.sh biped "[1, 3, 4, 7]"
+```
+### test
+```
+
+```
 
 ## Dependencies
 
