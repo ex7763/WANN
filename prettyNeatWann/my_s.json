@@ -1,6 +1,6 @@
 {
     "task":"biped",
-    "maxGen": 100,
+    "maxGen": 500,
     "alg_nReps": 3,
     "popSize": 8,
     "select_eliteRatio": 0.2,
