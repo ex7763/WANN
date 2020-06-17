@@ -1,3 +1,3 @@
 def get_g_h_act():
-  lst = [1,2,3,4,5,6]
+  lst = [1,11]
   return lst
