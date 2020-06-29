@@ -32,7 +32,8 @@ class WannDataGatherer():
     self.date_time = now.strftime("%F_%H-%M-%S")
     self.my_file_name = "log_" + self.date_time + ".csv"
     print("Create new log file", self.my_file_name)
-    self.file = open(self.my_file_name, "a")
+    #self.file = open(self.my_file_name, "a")
+    self.file = open(self.filename + ".csv", "a")
     self.file.write("Generation, Elite_Fit, Best Fit, Peak Fit\n")
     self.ep_count = 0
 
@@ -89,7 +90,7 @@ class WannDataGatherer():
     # ------------------------------------------------------------------------ 
 
   def display(self):
-    self.file = open(self.my_file_name, "a")
+    self.file = open(self.filename + ".csv", "a")
     self.file.write(str(self.ep_count) + ',' + str(self.fit_max[-1]) + ',' + str(self.fit_top[-1]) + ',' + str(self.fit_peak[-1]) + '\n')
     self.ep_count += 1
     return    "|---| Elite Fit: " + '{:.2f}'.format(self.fit_max[-1]) \
