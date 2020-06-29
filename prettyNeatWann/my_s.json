@@ -2,7 +2,7 @@
     "task":"biped",
     "maxGen": 500,
     "alg_nReps": 3,
-    "popSize": 8,
+    "popSize": 64,
     "select_eliteRatio": 0.2,
     "select_tournSize": 2,
     "alg_act": 0
