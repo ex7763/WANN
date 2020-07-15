@@ -50,7 +50,9 @@ def make_env(env_name, seed=-1, render_mode=False):
     if (env_name.startswith("CartPoleSwingUp_Hard")):
       env.dt = 0.01
       env.t_limit = 200
-
+  elif (env_name.startswith("LunarLander")):
+    from domain.Lunar_Lander import LunarLander
+    env = LunarLander()
 
 
 

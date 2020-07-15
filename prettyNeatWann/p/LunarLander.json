@@ -1,0 +1,8 @@
+{
+    "task":"LunarLander",
+    "alg_nReps": 4,
+    "maxGen": 512,
+    "popSize": 512,
+    "prob_initEnable": 0.25,
+    "select_tournSize": 16
+}
