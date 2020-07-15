@@ -27,24 +27,53 @@ How to construct  LunarLande neural network?
 cd prettyNeatWann
 python wann_train.py -p p/LunarLander.json -n 8 
 ```
+## 簡易使用方法
+### 下載
+`git clone https://github.com/google/brain-tokyo-workshop`
+### 用WANN訓練
+`cd brain-tokyo-workshop/WANNRelease/WANN`
+### Ctrl-c 中斷後子線程可能還留著
+這段 shell script 可以幫助你解決這個問題
+```
+kill -9 `ps aux | grep wann_train | tr -s ' ' | cut -d" " -f2`
+```
+#### 使用 cartpole
+`python wann_train.py -p p/laptop_swing.json -n 8`
+### 測試
+#### 使用 cartpole
+`python wann_test.py -p p/swingup.json -i champions/swing.out --nReps 3 --view True`
 
-把log檔名改成`<env>_<activation function value>.csv`
-注意`[1,2,3]`**數字中間不能空格**
-例一
+## 參數說明
+`-p` 會讀入設定檔，p 這個資料夾放了許多不同環境的設定檔
+`-n` 使用多少個thread去跑
+`task` 使用的環境
+`maxGen` 演化（訓練）的回合數
+### cartpole
 ```
-./train.sh swingup [1,2]
-mv log_2020-06-05_16-57-37.csv swingup_2.csv
+{
+    "task":"swingup",
+    "maxGen": 1024,
+    "alg_nReps": 3,
+    "popSize": 192,
+    "select_eliteRatio": 0.2,
+    "select_tournSize": 8
+}
 ```
-例二
-```
-./train.sh biped [1,5]
-mv log_2020-06-05_16-57-37.csv biped_5.csv
-```
-跑完後把`csv`檔傳到google drive，產生出的模型結構圖也上去
-如果電腦核心數沒這麼多，可以到 `./train.sh` 中，把`-n`改成你電腦的核心數量
-詳細說明看下面
 
-## code
+### bipedssss
+```
+{
+    "task":"biped",
+    "alg_nReps": 4,
+    "maxGen": 2048,
+    "popSize": 480,
+    "prob_initEnable": 0.25,
+    "select_tournSize": 16
+}
+```
+
+## 修改需要的激勵函數
+
 ```
 git clone https://github.com/ex7763/WANN
 cd prettyNeatWann
