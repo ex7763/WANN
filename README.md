@@ -16,30 +16,16 @@ This repository is split into 4 parts:
 
 * [WANNTool](WANNTool): If you want to fine tune the weights of an existing WANN and test their performance over many trials, this is the code for you.
 
----
 
-### Using the VAE Racer environment 
+Install python library
 
-The pretrained VAE used in the VAERacer experiments is about 20MB, so rather than include it in every folder we put a single copy in the base directory. To use it copy the contents of `vae` into the root directory, e.g. 
+1. pip install box2d
+2. pip install matplotlib
+3. pip install mpi4py
 
-`cp -r vae WANN/`
 
----
 
-### Citation
-For attribution in academic contexts, please cite this work as
+How to construct  LunarLande neural network?
 
-```
-@article{wann2019,
-  author = {Adam Gaier and David Ha},  
-  title  = {Weight Agnostic Neural Networks},  
-  eprint = {arXiv:1906.04358},  
-  url    = {https://weightagnostic.github.io},  
-  note   = "\url{https://weightagnostic.github.io}",  
-  year   = {2019}  
-}
-```
-
-## Disclaimer
-
-This is not an official Google product.
+cd prettyNeatWann
+python wann_train.py -p p/LunarLander.json -n 8 
